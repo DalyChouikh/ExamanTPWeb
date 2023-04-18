@@ -6,9 +6,49 @@ body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 120%;
-    background: #222 url("https://source.unsplash.com/1600x900/?landscape") no-repeat center ;
     background-size: cover;
+    background-position: center;
+    background-image: url("https://source.unsplash.com/1600x900/?landscape");
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #000000d0;
+    z-index: 1;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav li {
+    margin-left: 1em;
+  }
+  
+  nav a {
+    display: block;
+    padding: 0.5em;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  nav a:hover {
+    background-color: white;
+    color: #333;
+    border-radius: 0.5em;
+  }
+
+
 
 .card {
     background: #000000d0;
@@ -28,6 +68,32 @@ body {
 
 h1.temp {
     margin: 0 0 0.4em;
+}
+
+.joke-button {
+    background: #7c7c7c2b;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    font-family: inherit;
+    font-size: 105%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    outline: none;
+}
+
+.quote-button {
+    background: #7c7c7c2b;
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 420px;
+    font-family: inherit;
+    font-size: 105%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    outline: none;
 }
 
 button {
@@ -83,6 +149,9 @@ input.search-bar {
     border-top: 8px solid #ffff;
     animation: spin 2s linear infinite;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes spin {

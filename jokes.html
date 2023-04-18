@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My page</title>
+    <title>Jokes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
+    <script src="jokes.js" defer></script>
 </head>
 
 <body>
@@ -21,6 +21,13 @@
             <li><a id="quotes-link" href="quotes.html">Quotes</a></li>
         </ul>
     </nav>
+    <div class="card">
+        <div class="loader"></div>
+        <div class="joke loading">
+            Hello World!
+        </div>
+        <button class="joke-button">Generate</button>
+    </div>
 </body>
 
 </html>
