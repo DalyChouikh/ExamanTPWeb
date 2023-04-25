@@ -164,5 +164,13 @@ input.search-bar {
     100% { transform: rotate(360deg); }
 }
 
+.answer {
+    display: flex;
+}
+
+.answer img {
+    width: 50%;
+}
+
 
 

@@ -1,5 +1,5 @@
-const url = 'https://openai80.p.rapidapi.com/chat/completions';
-let options = {
+const url = 'https://openai80.p.rapidapi.com/images/generations';
+const options = {
     method: 'POST',
     headers: {
         'content-type': 'application/json',
@@ -7,34 +7,28 @@ let options = {
         'X-RapidAPI-Host': 'openai80.p.rapidapi.com'
     },
     body: JSON.stringify({
-		model: 'gpt-3.5-turbo',
-		messages: [
-			{
-				role: 'user',
-				content: 'What is HTTP error code 404!'
-			}
-		]
-	})
+        prompt: 'A cute baby sea otter',
+        n: 2,
+        size: '256x256'
+    })
 };
 
 let gpt = {
     fetchAnswer: function (question) {
         options.body = JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            messages: [
-                {
-                    role: 'user',
-                    content: question
-                }
-            ]
+            prompt: question,
+            n: 2,
+            size: '256x256'
         });
         fetch(url, options)
             .then((response) => response.json())
             .then((data) => this.displayAnswer(data));
     },
     displayAnswer: function (data) {
-        const message = data.choices[0].message.content;
-        document.querySelector(".answer").innerText = message;
+        console.log(data);
+        const first = data.data[0].url;
+        const second = data.data[1].url;
+        document.querySelector(".answer").innerHTML = `<img src="${first}" alt="First image" /><img src="${second}" alt="Second image" />`;
         document.querySelector(".answer").classList.remove("loading");
         if (document.querySelector(".loader")) {
             document.querySelector(".loader").remove();
@@ -53,6 +47,7 @@ document.querySelector(".search button").addEventListener("click", function () {
     document.querySelector(".card").appendChild(loader);
     //add class loading to .answer
     document.querySelector(".answer").classList.add("loading");
+
 })
 
 document.querySelector(".search-bar").addEventListener("keyup", function (event) {
@@ -67,6 +62,6 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
     }
 })
 
-gpt.fetchAnswer("Hello!")
+
 
 
