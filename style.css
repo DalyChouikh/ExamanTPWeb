@@ -48,7 +48,12 @@ nav {
     border-radius: 0.5em;
   }
 
-
+  nav ul li a.active {
+    background-color: white;
+    color: #333;
+    font-weight: bold; 
+    border-radius: 0.5em;
+  }
 
 .card {
     background: #000000d0;
